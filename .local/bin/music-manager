@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Launch your favorite music app
+
+default="ncmpcpp"
+
+case $default in
+    ncmpcpp)
+        kitty --class="$default" --title="Music Manager" -e "$default"
+        ;;
+esac
+#vi ft=sh
