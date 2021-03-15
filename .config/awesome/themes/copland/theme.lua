@@ -256,8 +256,17 @@ local bar_spr   = wibox.widget.textbox(markup.font("Terminus 3", " ") .. markup.
 
 function theme.at_screen_connect(s)
     -- Quake application
-    s.quake = lain.util.quake({ app = "kitty",argname = "--title %s",extra = "--class=QuakeDD tmux new-session -A -s DropDown",
-            visible = true, height = 0.4, width = 0.4, vert = "top", horiz = "center"})
+    s.quake = lain.util.quake({
+            app = "kitty",argname = "--title %s",extra = "--class=QuakeDD tmux new-session -A -s DropDown",
+            visible = false,
+            height = 0.25,
+            width = 1.0,
+            vert = "top",
+            horiz = "center",
+            border = 0,
+            overlap = true,
+            followtag = true,
+        })
 
     -- Tags
     awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
@@ -337,8 +346,6 @@ function theme.at_screen_connect(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            small_spr,
-            s.mylayoutbox,
             first,
             small_spr,
             s.mytaglist,
@@ -367,6 +374,8 @@ function theme.at_screen_connect(s)
             mytextclock,
             small_spr,
             s.systray,
+            small_spr,
+            s.mylayoutbox,
             small_spr
         },
     }

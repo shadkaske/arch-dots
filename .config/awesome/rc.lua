@@ -69,7 +69,8 @@ run_once({
     --"onedrive monitor",
     "lxpolkit",
     "udevadm monitor",
-    "nextcloud --background"
+    "nextcloud --background",
+    "udiskie"
 }) -- entries must be separated by commas
 
 -- }}}
@@ -694,7 +695,7 @@ client.connect_signal("request::titlebars", function(c)
     }
 end)
 
-beautiful.gap_single_client = false
+beautiful.gap_single_client = true
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
