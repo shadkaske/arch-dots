@@ -85,12 +85,12 @@
            :name "Showplace"
            :match-func
            (lambda (msg)
-             (when msg (string-prefix-p "/kaskshad-showplace" (mu4e-message-field msg :maildir) t)))
+             (when msg (string-prefix-p "/swp" (mu4e-message-field msg :maildir) t)))
            :vars '((user-mail-address . "skaske@showplacewood.com")
-                   (mu4e-drafts-folder . "/kaskshad-showplace/Drafts")
-                   (mu4e-sent-folder . "/kaskshad-showplace/Sent Items")
-                   (mu4e-refile-folder . "/kaskshad-showplace/Archive")
-                   (mu4e-trash-folder . "/kaskshad-showplace/Deleted Items")
+                   (mu4e-drafts-folder . "/swp/Drafts")
+                   (mu4e-sent-folder . "/swp/Sent Items")
+                   (mu4e-refile-folder . "/swp/Archive")
+                   (mu4e-trash-folder . "/swp/Deleted Items")
                    (mu4e-compose-signature . (concat
                                               "Shad Kaske\n"
                                               "Systems Administrator\n"
