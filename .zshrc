@@ -93,11 +93,6 @@ alias lzg=lazygit
 alias tn='tmux new-session -A -s'
 alias lzgd='lazygit -w $HOME -g $HOME/.dots'
 
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.local/bin/pip:$PATH
-export PATH=$HOME/.config/composer/vendor/bin:$PATH
-export PATH=$HOME/.composer/vendor/bin:$PATH
-
 # Term Setting
 export TERM="xterm-256color"
 
