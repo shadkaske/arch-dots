@@ -102,7 +102,7 @@ local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
 local browser      = os.getenv("BROWSER") or "firefox"
 local scrlocker    = "xfce4-screensaver-command --lock"
 local clpmngr      = "dmenu-greenclip"
-local filemanager  = "thunar"
+local filemanager  = terminal .. " --class=RangerFM --title=Ranger -e ranger"
 
 awful.util.terminal = terminal
 -- awful.util.tagnames = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " }

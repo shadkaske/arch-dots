@@ -17,7 +17,9 @@ declare -a options=(
 "polybar"
 "quickmarks"
 "qutebrowser"
+"ranger"
 "rofi"
+"ssh"
 "vim"
 "xresources"
 "zsh"
@@ -63,8 +65,14 @@ case "$choice" in
     qutebrowser)
         choice="/home/shad/.config/qutebrowser/config.py"
         ;;
+    ranger)
+        choice="$HOME/.config/ranger/rc.conf"
+        ;;
     rofi)
         choice="$HOME/.config/rofi/config.rasi"
+        ;;
+    ssh)
+        choice="$HOME/.ssh/config"
         ;;
     vim)
         choice="$HOME/.vimrc"
