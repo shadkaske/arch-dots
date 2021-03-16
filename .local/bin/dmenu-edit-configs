@@ -17,6 +17,7 @@ declare -a options=(
 "polybar"
 "quickmarks"
 "qutebrowser"
+"qutebrowser-bookmarks"
 "ranger"
 "rofi"
 "ssh"
@@ -64,6 +65,9 @@ case "$choice" in
         ;;
     qutebrowser)
         choice="/home/shad/.config/qutebrowser/config.py"
+        ;;
+    qutebrowser-bookmarks)
+        choice="/home/shad/.config/qutebrowser/bookmarks/urls"
         ;;
     ranger)
         choice="$HOME/.config/ranger/rc.conf"

@@ -14,7 +14,7 @@ get_cal () {
     $WGET -O $ICSFILE $URL
     $IC2ORG $ICSFILE $ORGFILE
     rm -f $ICSFILE
-} 
+}
 
 # Google Calendar
 ORGFILE=~/Nextcloud/org/cal/googlecal.org
@@ -26,7 +26,7 @@ get_cal
 # Showplace Calendar
 ORGFILE=~/Nextcloud/org/cal/showplacecal.org
 URL=https://outlook.office365.com/owa/calendar/afae5af3c90240e49772e95fdd884005@showplacewood.com/9877606e7f544b92ab11d45fd16d88d84825421122270417822/calendar.ics
- 
+
 echo "Getting Showplace Calendar ICS File ..."
 get_cal
 
