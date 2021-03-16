@@ -111,8 +111,8 @@
 
   ;; ;;;; Mailbox Shortcuts
   ;; (setq mu4e-maildir-shortcuts
-  ;;       '(("/kaskshad-showplace/INBOX" . ?si)
-  ;;         ("/kaskshad-showplace/Drafts" . ?sd)))
+  ;;       '(("/swp/INBOX" . ?si)
+  ;;         ("/swp/Drafts" . ?sd)))
 
   ;;;; Send Mail Settings
   (setq! sendmail-program "/usr/bin/msmtp"
@@ -121,8 +121,8 @@
          message-sendmail-extra-arguments '("--read-envelope-from")
          message-send-mail-function 'message-send-mail-with-sendmail))
 
-(mu4e-alert-set-default-style 'libnotify)
-(add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+;; (mu4e-alert-set-default-style 'libnotify)
+;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
 
 ;; Org Mode
 ;;;; Doom Emacs Org Settings
@@ -136,7 +136,6 @@
 (add-hook! 'org-mode-hook 'smk/set-buffer-variable-pitch)
 
 ;;;; Hide Emphasis Markers
-(after! org
   (setq org-hide-emphasis-markers t)
   ;;;; Turn On Logging
   (setq org-log-done t)
@@ -217,7 +216,8 @@
    '(org-level-2 ((t (:inherit outline-2 :height 1.1))))
    '(org-level-3 ((t (:inherit outline-3 :height 1.0))))
    '(org-level-4 ((t (:inherit outline-4 :height 0.9))))
-   '(org-level-5 ((t (:inherit outline-5 :height 0.85))))))
+   '(org-level-5 ((t (:inherit outline-5 :height 0.85)))))
+
 ;;;; Disable Electric Indent Mode
 (add-hook! org-mode (electric-indent-local-mode -1))
 
@@ -241,9 +241,9 @@
 (setq org-appear-autolinks t)
 
 ;;;; Org Alerts
-(use-package org-alert)
-(setq alert-default-style 'libnotify)
-(org-alert-enable)
+;; (use-package org-alert)
+;; (setq alert-default-style 'libnotify)
+;; (org-alert-enable)
 
 ;; NeoTree
 (after! neotree
