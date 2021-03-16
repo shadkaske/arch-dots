@@ -191,7 +191,7 @@ screen.connect_signal("arrange", function (s)
     local only_one = #s.tiled_clients == 1
     for _, c in pairs(s.clients) do
         if only_one and not c.floating or c.maximized then
-            c.border_width = 0
+            c.border_width = 1
         else
             c.border_width = beautiful.border_width
         end
@@ -410,11 +410,11 @@ globalkeys = my_table.join(
               {description = "Firefox", group = "applications"}),
 
     -- Chrome
-    awful.key({ modkey }, "F3", function() awful.spawn("qutebrowser") end,
-              {description = "QuteBrowser", group = "applications"}),
+    awful.key({ modkey }, "F3", function() awful.spawn("google-chrome-stable") end,
+              {description = "Chrome", group = "applications"}),
 
     -- Evolution
-    awful.key({ modkey }, "F4", function() awful.spawn("emacs") end,
+    awful.key({ modkey }, "F4", function() awful.spawn("emacs ~/Nextcloud/org/inbox.org") end,
               {description = "Emacs", group = "applications"}),
 
     -- File Manager
