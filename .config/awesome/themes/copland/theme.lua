@@ -257,7 +257,7 @@ local bar_spr   = wibox.widget.textbox(markup.font("Terminus 3", " ") .. markup.
 function theme.at_screen_connect(s)
     -- Quake application
     s.quake = lain.util.quake({
-            app = "kitty",argname = "--title %s",extra = "--class=QuakeDD tmux new-session -A -s DropDown",
+            app = "kitty",argname = "--title %s",extra = "--override window_padding_width=5 --class=QuakeDD tmux new-session -A -s DropDown",
             visible = false,
             height = 0.25,
             width = 1.0,
