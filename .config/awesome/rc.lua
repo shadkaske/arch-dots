@@ -414,7 +414,7 @@ globalkeys = my_table.join(
               {description = "Chrome", group = "applications"}),
 
     -- Evolution
-    awful.key({ modkey }, "F4", function() awful.spawn("emacs ~/Nextcloud/org/inbox.org") end,
+    awful.key({ modkey }, "F4", function() awful.spawn("emacs") end,
               {description = "Emacs", group = "applications"}),
 
     -- File Manager
