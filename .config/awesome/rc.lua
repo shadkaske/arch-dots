@@ -701,4 +701,4 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- awful.spawn.with_shell("feh --bg-fill --randomize ~/.local/share/backgrounds/*")
-awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("nitrogen --random -set-zoom-fill")
