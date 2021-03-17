@@ -131,7 +131,7 @@
 ;;         ("/kaskshad-showplace/Drafts" . ?sd)))
 
 ;;;; Send Mail Settings
-(setq sendmail-program "/usr/bin/msmtp"
+(setq! sendmail-program "/usr/bin/msmtp"
         send-mail-function 'smtpmail-send-it
         message-sendmail-f-is-evil t
         message-sendmail-extra-arguments '("--read-envelope-from")
