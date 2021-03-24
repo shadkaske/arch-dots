@@ -69,6 +69,8 @@ theme.titlebar_bg_focus                         = theme.bg_focus
 theme.menu_height                               = dpi(16)
 theme.menu_width                                = dpi(130)
 theme.tasklist_disable_icon                     = true
+theme.tasklist_fg_normal                        = foreground_inactive
+theme.tasklist_fg_focus                         = foreground
 theme.awesome_icon                              = theme.dir .."/icons/awesome.png"
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_unsel.png"
@@ -140,7 +142,7 @@ mytextclock.font = theme.font
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
-        font = "JetBrainsMono Nerd Font 11",
+        font = "JetBrainsMono Nerd Font 12",
         fg   = foreground,
         bg   = background
     }

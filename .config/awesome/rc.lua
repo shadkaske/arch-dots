@@ -100,6 +100,7 @@ local cycle_prev   = true -- cycle trough all previous client or just the first 
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
 local browser      = os.getenv("BROWSER") or "firefox"
+-- local scrlocker    = "betterlockscreen -l dim"
 local scrlocker    = "xfce4-screensaver-command --lock"
 local clpmngr      = "dmenu-greenclip"
 local filemanager  = terminal .. " --class=RangerFM --title=Ranger -e ranger"
@@ -262,14 +263,14 @@ globalkeys = my_table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end,
-        {description = "go back", group = "client"}),
+    -- awful.key({ modkey,           }, "Tab",
+    --     function ()
+    --         awful.client.focus.history.previous()
+    --         if client.focus then
+    --             client.focus:raise()
+    --         end
+    --     end,
+    --     {description = "go back", group = "client"}),
 
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()
@@ -379,6 +380,12 @@ globalkeys = my_table.join(
 
     awful.key({ modkey }, "p", function() awful.spawn("rofi -show run") end,
               {description = "show the rofi", group = "launcher"}),
+
+    awful.key({ modkey }, "Tab", function() awful.spawn("rofi -show window") end,
+              {description = "rofi window switcher", group = "launcher"}),
+
+    awful.key({ modkey, "Shift" }, "p", function() awful.spawn("rofi -show drun") end,
+              {description = "show the rofi drun", group = "launcher"}),
 
     -- Dmenu Greenclip
     awful.key({ modkey, altkey }, "v", function() awful.spawn("dmenu-greenclip") end,
@@ -700,5 +707,5 @@ beautiful.gap_single_client = true
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
--- awful.spawn.with_shell("feh --bg-fill --randomize ~/.local/share/backgrounds/*")
-awful.spawn.with_shell("nitrogen --random -set-zoom-fill")
+awful.spawn.with_shell("feh --bg-fill --randomize ~/.local/share/backgrounds/*")
+-- awful.spawn.with_shell("source ~/.fehbg")
