@@ -80,6 +80,7 @@
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e/")
 
 (require 'org-mu4e)
+(add-hook 'org-mode-hook 'org-appear-mode)
 (remove-hook! 'mu4e-compose-pre-hook 'org-msg-mode)
 (setq! mu4e-attachment-dir "~/Downloads")
 (setq! mu4e-maildir (expand-file-name "~/Mail")
@@ -142,9 +143,13 @@
 (add-hook! 'org-mode-hook #'doom-disable-line-numbers-h)
 
 ;;;; Set Variable Pitch Fonts for org mode
-(add-hook! 'org-mode-hook 'smk/set-buffer-variable-pitch)
+;; (add-hook! 'org-mode-hook 'smk/set-buffer-variable-pitch)
 
 (setq org-hide-emphasis-markers t)
+
+;; Set indent mode to 4 spaces
+(setq org-indent-indentation-per-level 4)
+
 ;;;; Turn On Logging
 (setq org-log-done t)
 (setq org-log-into-drawer t)
@@ -168,7 +173,7 @@
                         "~/Nextcloud/org/cal/showplacecal.org"))
 
 ;;;; Org Capture Templates
-(setq org-capture-templates
+(setq! org-capture-templates
 '(("t" "ToDo [Inbox]"
         entry (file "~/Nextcloud/org/inbox.org")
         "* TODO %i%?\n")
@@ -180,7 +185,7 @@
         "* %i%? ")
         ("e" "Email [Inbox]"
         entry (file "~/Nextcloud/org/inbox.org")
-        "* TODO %i%? \n %a")
+        "* TODO %? \n %a")
         ("f" "Link File [Inbox]"
         entry (file "~/Nextcloud/org/inbox.org")
         "* TODO %?\n %A\n")))
