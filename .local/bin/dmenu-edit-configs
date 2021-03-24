@@ -8,6 +8,7 @@
 # Dmenu script for editing some of my more frequently edited config files.
 declare -a options=(
 "awesome"
+"awesome-theme"
 "DoomConfig"
 "DoomInit"
 "dunst"
@@ -36,6 +37,9 @@ case "$choice" in
         ;;
     awesome)
         choice="$HOME/.config/awesome/rc.lua"
+        ;;
+    awesome-theme)
+        choice="$HOME/.config/awesome/themes/copland/theme.lua"
         ;;
     DoomConfig)
         choice="$HOME/.config/doom/config.el"
