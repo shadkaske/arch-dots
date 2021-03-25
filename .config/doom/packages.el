@@ -53,3 +53,4 @@
 (package! org-appear :recipe (:host github :repo "awth13/org-appear"))
 (package! visual-fill-column)
 (package! org-alert)
+(package! org-superstar)

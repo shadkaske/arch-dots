@@ -142,6 +142,9 @@
 ;;;; Disable LineNumber in Org Mode
 (add-hook! 'org-mode-hook #'doom-disable-line-numbers-h)
 
+;;;; Set org-appear hook
+(add-hook! 'org-mode-hook #'org-superstar-mode)
+
 ;;;; Set Variable Pitch Fonts for org mode
 ;; (add-hook! 'org-mode-hook 'smk/set-buffer-variable-pitch)
 
