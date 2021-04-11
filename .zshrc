@@ -156,3 +156,4 @@ export FZF_COMPLETION_OPTS='--border --info=inline'
 _systemctl_unit_state() {
   typeset -gA _sys_unit_state
   _sys_unit_state=( $(__systemctl list-unit-files "$PREFIX*" | awk '{print $1, $2}') ) }
+alias sail='bash vendor/bin/sail'
