@@ -938,7 +938,7 @@ c.content.autoplay = False
 ##   - true
 ##   - false
 ##   - ask
-c.content.notifications = False
+c.content.notifications.enabled = False
 
 ## Allow pdf.js to view PDF files in the browser. Note that the files can
 ## still be downloaded by clicking the download button in the pdf.js
@@ -2268,23 +2268,40 @@ config.bind('J', 'tab-prev')
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
 # Base16 qutebrowser template by theova and Daniel Mulford
 # Materia scheme by Defman21
+# base00 = "#263238"
+# base01 = "#2C393F"
+# base02 = "#37474F"
+# base03 = "#707880"
+# base04 = "#C9CCD3"
+# base05 = "#CDD3DE"
+# base06 = "#D5DBE5"
+# base07 = "#FFFFFF"
+# base08 = "#EC5F67"
+# base09 = "#EA9560"
+# base0A = "#FFCC00"
+# base0B = "#8BD649"
+# base0C = "#80CBC4"
+# base0D = "#89DDFF"
+# base0E = "#82AAFF"
+# base0F = "#EC5F67"
 
-base00 = "#263238"
-base01 = "#2C393F"
-base02 = "#37474F"
-base03 = "#707880"
-base04 = "#C9CCD3"
-base05 = "#CDD3DE"
-base06 = "#D5DBE5"
-base07 = "#FFFFFF"
-base08 = "#EC5F67"
-base09 = "#EA9560"
-base0A = "#FFCC00"
-base0B = "#8BD649"
-base0C = "#80CBC4"
-base0D = "#89DDFF"
-base0E = "#82AAFF"
-base0F = "#EC5F67"
+# Nord scheme
+base00 = "#2E3440"
+base01 = "#3B4252"
+base02 = "#434C5E"
+base03 = "#4C566A"
+base04 = "#D8DEE9"
+base05 = "#E5E9F0"
+base06 = "#ECEFF4"
+base07 = "#8FBCBB"
+base08 = "#BF616A"
+base09 = "#D08770"
+base0A = "#EBCB8B"
+base0B = "#A3BE8C"
+base0C = "#88C0D0"
+base0D = "#81A1C1"
+base0E = "#B48EAD"
+base0F = "#5E81AC"
 
 # set qutebrowser colors
 
