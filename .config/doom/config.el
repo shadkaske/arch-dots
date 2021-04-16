@@ -217,7 +217,7 @@
                 ("andy" . ?a)
                 ("travis" . ?t)
                 (:endgroup . "People")
-                ("followup" . ?f)))
+                ("@followup" . ?f)))
 
 ;;;; Org Refiler Targets
 (setq org-refile-targets '((org-agenda-files :maxlevel . 3)

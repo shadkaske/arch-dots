@@ -191,11 +191,11 @@ end)
 screen.connect_signal("arrange", function (s)
     local only_one = #s.tiled_clients == 1
     for _, c in pairs(s.clients) do
-        -- if only_one and not c.floating or c.maximized then
-        --     c.border_width = beautiful.border_width
-        -- else
-        --     c.border_width = beautiful.border_width
-        -- end
+        if only_one and not c.floating or c.maximized then
+            c.border_width = 0
+        else
+            c.border_width = beautiful.border_width
+        end
     end
 end)
 
@@ -702,7 +702,7 @@ client.connect_signal("request::titlebars", function(c)
     }
 end)
 
-beautiful.gap_single_client = true
+beautiful.gap_single_client = false
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
