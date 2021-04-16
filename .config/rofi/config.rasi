@@ -9,6 +9,6 @@ configuration {
     fake-transparency: true;
 }
 
-@import "base16-materia.rasi"
+@import "base16-nord.rasi"
 
 /* vim: ft=css */
