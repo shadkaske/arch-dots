@@ -1,5 +1,5 @@
 #!/bin/bash
 
-kitty --class=filemanager --name=ranger --title=Ranger -e ranger
+alacritty --class=filemanager --title=Ranger -e ranger
 
 # vi ft=sh

@@ -1,5 +1,5 @@
 #!/bin/bash
 
-kitty --class=dotfiles --name=Dots --title=Dots -e lazygit -w $HOME -g $HOME/.dots
+alacritty --class=dotfiles --title=Dots -e lazygit -w $HOME -g $HOME/.dots
 
 # vi: ft=sh

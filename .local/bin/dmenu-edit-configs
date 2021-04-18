@@ -7,6 +7,7 @@
 #
 # Dmenu script for editing some of my more frequently edited config files.
 declare -a options=(
+"alacritty"
 "awesome"
 "awesome-theme"
 "DoomConfig"
@@ -34,6 +35,9 @@ choice=$(echo "$(printf '%s\n' "${options[@]}")" | dmenu -p 'Edit config file: '
 case "$choice" in
     quit)
         echo "Program terminated." && exit 1
+        ;;
+    alacritty)
+        choice="$HOME/.config/alacritty/alacritty.yml"
         ;;
     awesome)
         choice="$HOME/.config/awesome/rc.lua"
@@ -97,7 +101,7 @@ case "$choice" in
 esac
 # Ultimately, what do want to do with our choice?  Open in our editor!
 if [[ -z $emacs ]]; then
-    kitty -e nvim "$choice" &
+    alacritty -e nvim "$choice" &
 else
     emacsclient -c -a emacs "$choice" &
 fi

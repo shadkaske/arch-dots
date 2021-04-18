@@ -6,7 +6,7 @@ default="ncmpcpp"
 
 case $default in
     ncmpcpp)
-        kitty --class="$default" --title="Music Manager" -e "$default"
+        alacritty --class="$default" --title="Music Manager" -e "$default"
         ;;
 esac
 #vi ft=sh
