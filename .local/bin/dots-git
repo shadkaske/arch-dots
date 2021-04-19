@@ -1,5 +1,0 @@
-#!/bin/bash
-
-alacritty --class=dotfiles --title=Dots -e lazygit -w $HOME -g $HOME/.dots
-
-# vi: ft=sh

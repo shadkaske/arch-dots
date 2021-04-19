@@ -1,5 +1,5 @@
 #!/bin/bash
 
-alacritty -e lazygit -w $HOME -g $HOME/.dots
+$TERMINAL -e lazygit -w $HOME -g $HOME/.dots
 
 #vim: ft=sh
