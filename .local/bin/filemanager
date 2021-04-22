@@ -1,5 +1,5 @@
 #!/bin/bash
 
-alacritty --class=filemanager --title=Ranger -e ranger
+$TERMINAL --class=filemanager --title=Ranger -e ranger
 
 # vi ft=sh
