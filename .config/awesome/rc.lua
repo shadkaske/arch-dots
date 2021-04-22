@@ -14,6 +14,8 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+-- Import Lain Library
+local lain    = require("lain")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -65,19 +67,28 @@ run_once({
     "lxpolkit",
     "udevadm monitor",
     "nextcloud --background",
-    "udiskie"
+    "udiskie",
+    "volumeicon"
 }) -- entries must be separated by commas
 
 -- }}}
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "gtk/theme.lua")
+beautiful.init("~/.config/awesome/themes/gtk/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
+local vi_focus     = false -- vi-like client focus - https://github.com/lcpz/awesome-copycats/issues/275
+local cycle_prev   = true -- cycle trough all previous client or just the first -- https://github.com/lcpz/awesome-copycats/issues/274
+local browser      = os.getenv("BROWSER") or "firefox"
+local scrlocker    = "xfce4-screensaver-command --lock"
+local clpmngr      = "dmenu-greenclip"
+local filemanager  = terminal .. " --class=RangerFM --title=Ranger -e ranger"
+local altkey       = "Mod1"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
+awful.util.terminal = terminal
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -208,6 +219,18 @@ awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     -- set_wallpaper(s)
 
+    s.quake = lain.util.quake({
+            app = "kitty",argname = "--title %s",extra = "--override window_padding_width=5 --class=QuakeDD tmux new-session -A -s DropDown",
+            visible = false,
+            height = 0.25,
+            width = 1.0,
+            vert = "top",
+            horiz = "center",
+            border = 0,
+            overlap = true,
+            followtag = true,
+        })
+
     -- Each screen has its own tag table.
     awful.tag({ "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }, s, awful.layout.layouts[1])
 
@@ -275,7 +298,7 @@ globalkeys = gears.table.join(
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
+    awful.key({ modkey,           }, "''", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
     awful.key({ modkey,           }, "j",
@@ -301,6 +324,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
+              {description = "focus the previous screen", group = "screen"}),
+    awful.key({ modkey }, ",", function () awful.screen.focus_relative( 1) end,
+              {description = "focus the next screen", group = "screen"}),
+    awful.key({ modkey }, ".", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
@@ -364,9 +391,139 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+
+    -- X screen locker
+    awful.key({ modkey }, "Escape", function () os.execute(scrlocker) end,
+              {description = "lock screen", group = "hotkeys"}),
+
+    -- Show/Hide Wibox
+    awful.key({ modkey }, "b", function ()
+            for s in screen do
+                s.mywibox.visible = not s.mywibox.visible
+                if s.mybottomwibox then
+                    s.mybottomwibox.visible = not s.mybottomwibox.visible
+                end
+            end
+        end,
+        {description = "toggle wibox", group = "awesome"}),
+
+    -- On the fly useless gaps change
+    awful.key({ modkey, "Control" }, "=", function () lain.util.useless_gaps_resize(1) end,
+              {description = "increment useless gaps", group = "tag"}),
+    awful.key({ modkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,
+              {description = "decrement useless gaps", group = "tag"}),
+
+    -- MPD control
+    awful.key({}, "XF86AudioPlay",
+        function()
+            os.execute("mpc toggle")
+            beautiful.mpd.update()
+        end,
+        {description = "MPC Play/Pause", group = "Media"}),
+    awful.key({}, "XF86AudioNext",
+        function()
+            os.execute("mpc next")
+            beautiful.mpd.update()
+        end,
+        {description = "MPC Next", group = "Media"}),
+
+    awful.key({}, "XF86AudioPrev",
+        function()
+            os.execute("mpc prev")
+            beautiful.mpd.update()
+        end,
+        {description = "MPC Next", group = "Media"}),
+
+    -- Dropdown application
+    awful.key({ modkey }, "`", function() awful.screen.focused().quake:toggle() end,
+              {description = "Dropdown Terminal", group = "applications"}),
+
+    awful.key({ modkey }, "q", function () awful.spawn(browser) end,
+              {description = "run browser", group = "launcher"}),
+    awful.key({ modkey }, "a", function () awful.spawn(gui_editor) end,
+              {description = "run gui editor", group = "launcher"}),
+
+    awful.key({ modkey }, "p", function() awful.spawn("rofi -show run") end,
+              {description = "show the rofi", group = "launcher"}),
+
+    awful.key({ modkey }, "Tab", function() awful.spawn("rofi -show window") end,
+              {description = "rofi window switcher", group = "launcher"}),
+
+    awful.key({ modkey, "Shift" }, "p", function() awful.spawn("rofi -show drun") end,
+              {description = "show the rofi drun", group = "launcher"}),
+
+    -- Dmenu Qutebrowser
+    awful.key({ modkey, altkey }, "b", function() awful.spawn("dmenu-qutebrowser") end,
+              {description = "qutebrowser links", group = "launcher"}),
+
+    -- Dmenu Greenclip
+    awful.key({ modkey, altkey }, "v", function() awful.spawn("dmenu-greenclip") end,
+              {description = "clipboard manager", group = "launcher"}),
+
+    -- Toggle Systray
+    awful.key({ modkey }, "=", function()
+        awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
+    end, {description = "Toggle Systray", group = "custom"}),
+
+    -- Dmenu Calc
+    awful.key({ modkey, altkey }, "=", function() awful.spawn("=") end,
+            {description = "Toggle Systray", group = "custom"}),
+
+    -- Dmenu virsh list
+    awful.key({ modkey, altkey }, "i", function() awful.spawn("dmenu-virtmanager") end,
+              {description = "virt-manager vms", group = "launcher"}),
+
+    -- Dmenu Network Manager
+    awful.key({ modkey, altkey }, "n", function() awful.spawn("dmenu-networkmanager") end,
+              {description = "dmenu network manager", group = "launcher"}),
+
+    -- Dmenu Remote Desktop
+    awful.key({ modkey, altkey }, "r", function() awful.spawn("dmenu-remmina") end,
+              {description = "dmenu remmina connections", group = "launcher"}),
+
+    -- Firefox
+    awful.key({ modkey }, "F2", function() awful.spawn("firefox") end,
+              {description = "Firefox", group = "applications"}),
+
+    -- Chrome
+    awful.key({ modkey }, "F3", function() awful.spawn("google-chrome-stable") end,
+              {description = "Chrome", group = "applications"}),
+
+    -- Evolution
+    awful.key({ modkey }, "F4", function() awful.spawn("emacs") end,
+              {description = "Emacs", group = "applications"}),
+
+    -- File Manager
+    awful.key({ modkey }, "F6", function() awful.spawn(filemanager) end,
+              {description = "File Manager", group = "applications"}),
+
+    -- Database Manager
+    awful.key({ modkey }, "F7", function() awful.spawn("dbeaver") end,
+              {description = "Database Manager", group = "applications"}),
+
+    -- Virt Manager
+    awful.key({ modkey }, "F8", function() awful.spawn("virt-manager") end,
+              {description = "Virt-Manager", group = "applications"}),
+
+    -- Lazy Git Dots
+    awful.key({ modkey, altkey }, "d", function() awful.spawn("lazygit-dots") end,
+              {description = "Dot Files Manager", group = "applications"}),
+
+    -- Edit Configs
+    awful.key({ modkey, altkey }, "e", function() awful.spawn("dmenu-edit-configs") end,
+              {description = "edit configs", group = "launcher"}),
+
+    -- Pulse Audio Source Selection
+    awful.key({ modkey, altkey }, "s", function() awful.spawn("dmenu-audio-select") end,
+              {description = "audio source", group = "launcher"}),
+
+    -- BitWarden
+    awful.key({ modkey, altkey }, "p", function() awful.spawn("bwmenu -c 30") end,
+             {description = "Rofi BitWarden", group = "launcher"}),
+
+    -- LastPass
+    awful.key({ modkey, altkey }, "l", function() awful.spawn("dmenu-lastpass --notes copy") end,
+             {description = "LastPass", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
@@ -595,6 +752,7 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 beautiful.gap_single_client = false
+beautiful.tasklist_disable_icon = true
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
