@@ -16,6 +16,7 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Import Lain Library
 local lain    = require("lain")
+markup      = lain.util.markup
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -273,7 +274,6 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            -- mykeyboardlayout,
             mytextclock,
             wibox.widget.systray(),
             s.mylayoutbox,
@@ -417,20 +417,20 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioPlay",
         function()
             os.execute("mpc toggle")
-            beautiful.mpd.update()
+            -- beautiful.mpd.update()
         end,
         {description = "MPC Play/Pause", group = "Media"}),
     awful.key({}, "XF86AudioNext",
         function()
             os.execute("mpc next")
-            beautiful.mpd.update()
+            -- beautiful.mpd.update()
         end,
         {description = "MPC Next", group = "Media"}),
 
     awful.key({}, "XF86AudioPrev",
         function()
             os.execute("mpc prev")
-            beautiful.mpd.update()
+            -- beautiful.mpd.update()
         end,
         {description = "MPC Next", group = "Media"}),
 
@@ -455,6 +455,10 @@ globalkeys = gears.table.join(
     -- Dmenu Qutebrowser
     awful.key({ modkey, altkey }, "b", function() awful.spawn("dmenu-qutebrowser") end,
               {description = "qutebrowser links", group = "launcher"}),
+
+    -- Dmenu mpd
+    awful.key({ modkey, altkey }, "m", function() awful.spawn("dmenu-mpd") end,
+              {description = "mdp control", group = "launcher"}),
 
     -- Dmenu Greenclip
     awful.key({ modkey, altkey }, "v", function() awful.spawn("dmenu-greenclip") end,
