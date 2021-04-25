@@ -1,5 +1,5 @@
 #!/bin/bash
 
-$TERMINAL --class=filemanager --title=Ranger -e ranger
+st -c filemanager -t Ranger -e ranger
 
 # vi ft=sh

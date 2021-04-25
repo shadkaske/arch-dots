@@ -101,7 +101,7 @@ case "$choice" in
 esac
 # Ultimately, what do want to do with our choice?  Open in our editor!
 if [[ -z $emacs ]]; then
-    $TERMINAL -e nvim "$choice" &
+    st -e nvim "$choice" &
 else
     emacsclient -c -a emacs "$choice" &
 fi
