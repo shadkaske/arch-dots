@@ -6,7 +6,7 @@ default="ncmpcpp"
 
 case $default in
     ncmpcpp)
-        $TERMINAL --class="$default" --title="Music Manager" -e "$default"
+        st -c "$default" -t "Music Manager" -e "$default"
         ;;
 esac
 #vi ft=sh
