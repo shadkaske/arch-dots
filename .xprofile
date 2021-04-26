@@ -5,3 +5,5 @@ setxkbmap -option ctrl:nocaps
 export QT_STYLE_OVERRIDE=kvantum
 
 export TERMINAL=alacritty
+
+source ~/.fehbg
