@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with qutebrowser.  If not, see <http://www.gnu.org/licenses/>.
 
-# Pipes history, quickmarks, and URL into dmenu -i.
+# Pipes history, quickmarks, and URL into dmenu.
 #
 # If run from qutebrowser as a userscript, it runs :open on the URL
 # If not, it opens a new qutebrowser window at the URL
