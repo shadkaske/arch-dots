@@ -18,6 +18,9 @@ alt + super + {v,r,n,b,e}
 alt + super + {s,m,i}
     dmenu-{audio-select,mpd,virtmanager}
 
+alt + super + c
+    dmenu-calculator --dmenu=/usr/local/bin/dmenu
+
 super + @Tab
     dmenu-window-select
 
@@ -29,4 +32,4 @@ super + shift + p
 
 # Lockscreen
 super + @Escape
-    betterlockscreen -l dim
+    betterlockscreen -l dimblur
