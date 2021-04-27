@@ -45,12 +45,12 @@ def dmenu_cmd(num_lines, prompt="Networks", active_lines=None):  # pylint: disab
     Args: args - num_lines: number of lines to display
                  prompt: prompt to show
     Returns: command invocation (as a list of strings) for
-                dmenu -l <num_lines> -p <prompt> -i ...
+                dmenu -l <num_lines> -p <prompt> ...
 
     """
     dmenu_command = "dmenu"
     if not CONF.sections():
-        res = [dmenu_command, "-i", "-l", str(num_lines), "-p", str(prompt)]
+        res = [dmenu_command, "-l", str(num_lines), "-p", str(prompt)]
         res.extend(sys.argv[1:])
         return res
     if CONF.has_section('dmenu'):
@@ -68,12 +68,12 @@ def dmenu_cmd(num_lines, prompt="Networks", active_lines=None):  # pylint: disab
         elif "p" in args_dict:
             del args_dict["p"]
         if "rofi" in dmenu_command:
-            lines = "-i -dmenu -lines"
+            lines = "-dmenu -lines"
             # rofi doesn't support 0 length line, it requires at least -lines=1
             # see https://github.com/DaveDavenport/rofi/issues/252
             num_lines = num_lines or 1
         else:
-            lines = "-i -l"
+            lines = "-l"
         if "l" in args_dict:
             # rofi doesn't support 0 length line, it requires at least -lines=1
             # see https://github.com/DaveDavenport/rofi/issues/252

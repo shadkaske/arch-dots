@@ -122,7 +122,7 @@ fi
 # Get selection from user via dmenu -i
 selid=$(
   printf '%s\n' "${entries[@]}" |
-  dmenu -i -p 'LastPass' -l 7 |
+  dmenu -p 'LastPass' -l 7 |
   sed 's/^.*\[id: \([0-9]\{1,\}\)\].*$/\1/'
   )
 if [ -z "${selid}" ]; then

@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with qutebrowser.  If not, see <http://www.gnu.org/licenses/>.
 
-# Pipes history, quickmarks, and URL into dmenu -i.
+# Pipes history, quickmarks, and URL into dmenu.
 #
 # If run from qutebrowser as a userscript, it runs :open on the URL
 # If not, it opens a new qutebrowser window at the URL
@@ -42,7 +42,7 @@ QUTE_CONFIG_DIR=$HOME/.config/qutebrowser
 
 [ -z "$QUTE_URL" ] && QUTE_URL='http://google.com'
 
-url=$(echo "$QUTE_URL" | cat - "$QUTE_CONFIG_DIR/quickmarks" "$QUTE_DATA_DIR/history" | dmenu -i -l 15 -p qutebrowser)
+url=$(echo "$QUTE_URL" | cat - "$QUTE_CONFIG_DIR/quickmarks" "$QUTE_DATA_DIR/history" | dmenu -l 15 -p qutebrowser)
 url=$(echo "$url" | sed -E 's/[^ ]+ +//g' | grep -E "https?:" || echo "$url")
 
 [ -z "${url// }" ] && exit
