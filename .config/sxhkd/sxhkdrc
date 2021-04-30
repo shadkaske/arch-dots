@@ -12,8 +12,8 @@ XF86Audio{Next,Prev}
     mpc {next,prev}
 
 # Dmenu Scripts
-alt + super + {v,r,n,e,u,slash}
-    dmenu-{greenclip,remmina,networkmanager,edit-configs,pacman,scrot}
+alt + super + {v,r,n,e,u,slash,u}
+    dmenu-{greenclip,remmina,networkmanager,edit-configs,pacman,scrot,pacman}
 
 alt + super + b
     dmqute

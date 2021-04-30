@@ -16,6 +16,11 @@ then
     # setup server window
     tmux new-window -t $session:2 -n 'Server'
     tmux send-keys -t 'Server' '~/Code/printapp' C-m 'vagrant up' C-m
+    tmux send-keys -t 'Server' '~/Code/printapp' C-m 'vagrant up' C-m 'vagrant ssh' C-m 'cd printapp' C-m 'clear' C-m
+
+    # start up a lazygit session
+    tmux new-window -t $session:3 -n 'LazyGit'
+    tmux send-keys -t 'LazyGit' '~/Code/printapp' C-m 'lazygit' C-m
 
 fi
 

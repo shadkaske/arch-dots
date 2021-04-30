@@ -61,6 +61,7 @@ let g:which_key_map.b = {
       \ 'name' : '+Buffers' ,
       \ '1' : ['b1'         , 'buffer 1'],
       \ '2' : ['b2'         , 'buffer 2'],
+      \ 'a' : [':bufdo bd'  , 'close all buffers'],
       \ 'b' : [':Buffers'   , 'fzf buffer'],
       \ 'd' : [':Bdelete'   , 'delete buffer'],
       \ 'D' : [':Bdelete!'  , 'force delete buffer'],
@@ -190,6 +191,13 @@ let g:which_key_map.t = {
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
       \ }
+
+" w is for Windows
+let g:which_key_map.w = {
+    \ 'name' : '+Windows',
+    \ 'q' : [':close'      , 'close window'],
+    \ 'o' : [':only'       , 'close other windows'],
+  \ }
 
 " T is for tabs
 " let g:which_key_map.T = {
