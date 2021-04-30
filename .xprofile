@@ -1,9 +1,35 @@
-export PATH=$HOME/.local/bin:$PATH
+#!/bin/bash
 
-setxkbmap -option ctrl:nocaps
+export PATH=$HOME/.local/bin:$PATH
 
 export QT_STYLE_OVERRIDE=kvantum
 
-export TERMINAL=alacritty
+export TERMINAL=st
+
+setxkbmap -option ctrl:nocaps &
+
+xset s 900 1800 &
+
+xautolock -time 10 -locker "betterlockscreen -l dimblur" &
+
+greenclip daemon &
+
+unclutter -idle 5 &
+
+volumeicon &
+
+nm-applet &
+
+lxpolkit &
+
+lxsession &
+
+dunst &
+
+udiskie &
+
+picom &
 
 source ~/.fehbg
+
+# vi: ft=sh

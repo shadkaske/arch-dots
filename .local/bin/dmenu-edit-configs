@@ -23,9 +23,11 @@ declare -a options=(
 "ranger"
 "rofi"
 "ssh"
+"sxhkd"
 "vim"
 "xresources"
 "zsh"
+"config-menu"
 "quit"
 )
 # The combination of echo and printf is done to add line breaks to the end of each
@@ -86,6 +88,9 @@ case "$choice" in
     ssh)
         choice="$HOME/.ssh/config"
         ;;
+    sxhkd)
+        choice="$HOME/.config/sxhkd/sxhkdrc"
+        ;;
     vim)
         choice="$HOME/.vimrc"
         ;;
@@ -94,6 +99,9 @@ case "$choice" in
         ;;
     zsh)
         choice="$HOME/.zshrc"
+        ;;
+    config-menu)
+        choice="$HOME/.local/bin/dmenu-edit-configs"
         ;;
     *)
         exit 1

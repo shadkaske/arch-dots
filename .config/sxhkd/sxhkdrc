@@ -12,8 +12,11 @@ XF86Audio{Next,Prev}
     mpc {next,prev}
 
 # Dmenu Scripts
-alt + super + {v,r,n,b,e}
-    dmenu-{greenclip,remmina,networkmanager,qutebrowser,edit-configs}
+alt + super + {v,r,n,e,u,slash}
+    dmenu-{greenclip,remmina,networkmanager,edit-configs,pacman,scrot}
+
+alt + super + b
+    dmqute
 
 alt + super + {s,m,i}
     dmenu-{audio-select,mpd,virtmanager}
@@ -21,11 +24,8 @@ alt + super + {s,m,i}
 alt + super + c
     dmenu-calculator --dmenu=/usr/local/bin/dmenu
 
-super + @Tab
-    dmenu-window-select
-
 alt + super + {l,p}
-    {dmenu-lastpass copy,bitwarden-dmenu}
+    {dmenu-lastpass copy,bwmenu}
 
 super + shift + p
     j4-dmenu-desktop
@@ -33,3 +33,10 @@ super + shift + p
 # Lockscreen
 super + @Escape
     betterlockscreen -l dimblur
+
+# App Launcers
+super + {F2,F3,F4,F6,F7,F8}
+    {google-chrome-stable,qutebrowser,emacs,filemanager,dbeaver,virt-manager}
+
+super + alt + d
+    lazygit-dots
