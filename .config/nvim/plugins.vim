@@ -12,7 +12,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'justinmk/vim-sneak'
     Plug 'christoomey/vim-tmux-navigator'
-    Plug 'edkolev/tmuxline.vim'
+    " Plug 'edkolev/tmuxline.vim'
     Plug 'tmux-plugins/vim-tmux-focus-events'
     Plug 'moll/vim-bbye'
     Plug 'tpope/vim-surround'
@@ -21,7 +21,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ChristianChiarulli/far.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'chriskempson/base16-vim'
+    " Plug 'chriskempson/base16-vim'
+    Plug 'arcticicestudio/nord-vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'machakann/vim-highlightedyank'

@@ -19,8 +19,8 @@
     $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # Check if Base16-Shell is Installed
-[ ! -d $HOME/.config/base16-shell ] && git clone https://github.com/chriskempson/base16-shell.git \
-    $HOME/.config/base16-shell
+# [ ! -d $HOME/.config/base16-shell ] && git clone https://github.com/chriskempson/base16-shell.git \
+#     $HOME/.config/base16-shell
 
 export PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH=$HOME/.local/bin:$PATH

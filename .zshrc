@@ -20,10 +20,10 @@ fi
 export ZSH=$HOME/.oh-my-zsh
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # Set default color scheme if base16-shell link is missing
 [ ! -f $HOME/.base16_theme ] && base16_helios

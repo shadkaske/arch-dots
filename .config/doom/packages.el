@@ -54,3 +54,4 @@
 (package! visual-fill-column)
 (package! org-alert)
 (package! org-superstar)
+(package! nord-theme)
