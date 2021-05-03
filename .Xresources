@@ -67,5 +67,7 @@ dwm.resizehints : 0
 dwm.mfact : 0.52
 dwm.gappx : 4
 
+st.font : font
+
 
 ! vi: ft=xdefaults
