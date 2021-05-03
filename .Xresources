@@ -23,6 +23,8 @@
 #define nord14 #A3BE8C
 #define nord15 #B48EAD
 
+#define font : "JetBrainsMono Nerd Font-11"
+
 *.foreground:   nord4
 *.background:   nord0
 *.cursorColor:  nord4
@@ -46,18 +48,24 @@
 *.color14: nord7
 *.color15: nord6
 
-dmenu.font : 'JetBrainsMono Nerd Font-11'
+dmenu.font : font
 dmenu.background : nord0
 dmenu.foreground : nord4
 dmenu.selbackground : nord8
 dmenu.selforeground : nord1
 
+dwm.font : font
+dwm.dmenufont : font
 dwm.normbgcolor : nord0
 dwm.normbordercolor : nord3
 dwm.normfgcolor : nord4
 dwm.selbgcolor : nord8
 dwm.selbordercolor : nord8
 dwm.selfgcolor : nord1
+dwm.borderpx : 2
+dwm.resizehints : 0
+dwm.mfact : 0.52
+dwm.gappx : 4
 
 
 ! vi: ft=xdefaults

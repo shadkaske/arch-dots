@@ -45,6 +45,7 @@ let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
 " a is for actions
 let g:which_key_map.a = {
       \ 'name' : '+Actions' ,
+      \ ';' : [':normal A;'                         , 'append semicolon'],
       \ 'c' : [':ColorToggle'                       , 'colorizer'],
       \ 'e' : [':CocCommand explorer'               , 'explorer'],
       \ 'h' : [':let @/ = ""'                       , 'remove search highlight'],

@@ -8,28 +8,30 @@ export TERMINAL=st
 
 setxkbmap -option ctrl:nocaps &
 
-xset s 900 1800 &
+# xset s 900 1800 &
 
 xautolock -time 10 -locker "betterlockscreen -l dimblur" &
 
-greenclip daemon &
+# greenclip daemon &
 
-unclutter -idle 5 &
+# unclutter -idle 5 &
 
-volumeicon &
+# volumeicon &
 
-nm-applet &
+# nm-applet &
 
-lxpolkit &
+# lxpolkit &
 
-lxsession &
+# lxsession &
 
-dunst &
+# dunst &
 
-udiskie &
+# udiskie &
 
-picom &
+# picom &
 
 source ~/.fehbg
+
+xrdb -merge ~/.Xresources &
 
 # vi: ft=sh
