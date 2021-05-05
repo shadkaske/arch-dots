@@ -16,19 +16,19 @@ refresh(){
 }
 
 confirm(){
-    answer=$(printf "No\nYes" | dmenu -p "$1") || exit
+    answer=$(printf "No\nYes" | dmenu -i -p "$1") || exit
     [ "$answer" = "No" ] && exit
 }
 
 install(){
     refresh
-    package=$(dmenu -l 30 -p "Package to install" < "$packageList") || exit
+    package=$(dmenu -i -l 30 -p "Package to install" < "$packageList") || exit
     confirm "Install this package?"
     $TERMINAL -e sudo pacman -S --noconfirm $(echo "$package" | cut -d'=' -f1)
 }
 
 remove(){
-    package=$(pacman -Qeq | dmenu -l 30 -p "Package to remove") || exit
+    package=$(pacman -Qeq | dmenu -i -l 30 -p "Package to remove") || exit
     confirm "Remove this package?"
     $TERMINAL sudo pacman -Rns --noconfirm "$package"
 }
@@ -44,7 +44,7 @@ cleanUp(){
 }
 
 menu(){
-    operation=$(printf "install\nremove\nupdate\nremove orphan packages" | dmenu -l 4 -p "Select operation") || exit
+    operation=$(printf "install\nremove\nupdate\nremove orphan packages" | dmenu -i -l 4 -p "Select operation") || exit
     case $operation in
         "install") install ;;
         "remove") remove ;;
