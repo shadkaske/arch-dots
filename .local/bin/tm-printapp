@@ -11,7 +11,7 @@ then
 
     # Setup editor window
     tmux rename-window -t 1 'Editor'
-    tmux send-keys -t 'Editor' '~/Code/printapp' C-m 'nvim' C-m
+    tmux send-keys -t 'Editor' 'cd ~/Code/printapp' C-m 'vagrant ssh' C-m 'cd printapp' C-m 'nvim' C-m
 
     # setup server window
     tmux new-window -t $session:2 -n 'Server'

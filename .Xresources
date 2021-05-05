@@ -54,8 +54,6 @@ dmenu.foreground : nord4
 dmenu.selbackground : nord8
 dmenu.selforeground : nord1
 
-dwm.font : font
-dwm.dmenufont : font
 dwm.normbgcolor : nord0
 dwm.normbordercolor : nord3
 dwm.normfgcolor : nord4
