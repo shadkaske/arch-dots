@@ -2,10 +2,10 @@ configuration {
     modi: "window,drun,run,ssh,combi";
     location: 2;
     /* yoffset: 24; */
-    font: "JetBrainsMono Nerd Font 12";
-    terminal: "kitty";
+    font: "JetBrainsMono Nerd Font 11";
+    terminal: "st";
     matching: "fuzzy";
-    show-icons: true;
+    show-icons: false;
     fake-transparency: true;
 }
 
@@ -13,6 +13,6 @@ configuration {
 
 }
 
-@import "base16-nord.rasi"
+@import "dmenu.rasi"
 
 /* vim: ft=css */
