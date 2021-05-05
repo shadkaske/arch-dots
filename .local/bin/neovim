@@ -1,5 +1,5 @@
 #!/bin/bash
 
-$TERMINAL --class="Neovim" -e nvim
+st -c Neovim -e nvim
 
 # vi: ft=sh

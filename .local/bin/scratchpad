@@ -1,6 +1,6 @@
 #!/bin/bash
 
-session="ScratchPad"
+session="Pad"
 
 sessionexists=$($tmux ls | grep $session)
 
