@@ -23,7 +23,7 @@
 #define nord14 #A3BE8C
 #define nord15 #B48EAD
 
-#define font : "JetBrainsMono Nerd Font-11"
+#define font : "JetBrainsMono Nerd Font:size=11"
 
 *.foreground:   nord4
 *.background:   nord0
@@ -65,7 +65,6 @@ dwm.resizehints : 0
 dwm.mfact : 0.52
 dwm.gappx : 4
 
-st.font : font
 
 
 ! vi: ft=xdefaults
