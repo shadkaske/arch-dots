@@ -1,5 +1,6 @@
 #!/bin/bash
 
-st -c Neovim -e nvim
+# st -c Neovim -e nvim
+alacritty --class Neovim -e nvim
 
 # vi: ft=sh
