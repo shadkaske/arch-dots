@@ -29,6 +29,6 @@ then
 
 fi
 
-st -t printApp -e tmux attach-session -t $session:1 -c $HOME/Code/printapp
+alacritty -t printApp -e tmux attach-session -t $session:1 -c $HOME/Code/printapp
 
 # vi: ft=sh
