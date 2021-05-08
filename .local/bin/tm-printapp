@@ -16,6 +16,8 @@ then
     # setup server window
     tmux new-window -t $session:2 -n 'Vagrant'
     tmux send-keys -t 'Vagrant' '~/Code/printapp' C-m 'vagrant up' C-m 'vagrant ssh' C-m 'cd printapp' C-m 'clear' C-m
+    tmux split-window -t 'Vagrant'
+    tmux send-keys -t 'Vagrant' '~/Code/printapp' C-m 'npm run watch' C-m
 
     # start up a lazygit session
     tmux new-window -t $session:3 -n 'LazyGit'
