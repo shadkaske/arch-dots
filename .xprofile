@@ -4,7 +4,9 @@ export PATH=$HOME/.local/bin:$PATH
 
 export QT_STYLE_OVERRIDE=kvantum
 
-export TERMINAL=st
+export TERMINAL=alacritty
+
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 setxkbmap -option ctrl:nocaps &
 

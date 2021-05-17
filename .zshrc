@@ -53,6 +53,7 @@ plugins=(
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 source $ZSH/oh-my-zsh.sh
 
