@@ -92,6 +92,8 @@ alias vupp='vagrant up --provision'
 alias lzg=lazygit
 alias tn='tmux new-session -A -s'
 alias lzgd='lazygit -w $HOME -g $HOME/.dots'
+alias hup='homestead up'
+alias hdn='homestead halt'
 
 # Term Setting
 export TERM="xterm-256color"
