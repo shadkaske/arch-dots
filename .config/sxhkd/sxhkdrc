@@ -4,13 +4,6 @@
 alt + shift + Escape
 	pkill -USR1 -x sxhkd
 
-# MPD Controls
-XF86AudioPlay
-	mpc toggle
-
-XF86Audio{Next,Prev}
-    mpc {next,prev}
-
 # Dmenu Scripts
 alt + super + {v,r,n,e,u,slash,u}
     dmenu-{greenclip,remmina,networkmanager,edit-configs,pacman,scrot,pacman}
@@ -40,3 +33,20 @@ super + {F2,F3,F4,F6,F7,F8}
 
 super + alt + d
     lazygit-dots
+
+### MEDIA KEYS ###
+# MPD Controls
+XF86AudioPlay
+	mpc toggle && pkill -RTMIN+5 dwmblocks
+
+XF86Audio{Next,Prev}
+    mpc {next,prev} && pkill -RTMIN+5 dwmblocks
+
+XF86AudioMute
+    pamixer --mute && pkill -RTMIN+10 dwmblocks
+
+XF86AudioRaiseVolume
+    pamixer -u -i 5 && pkill -RTMIN+10 dwmblocks
+
+XF86AudioLowerVolume
+    pamixer -u -d 5 && pkill -RTMIN+10 dwmblocks

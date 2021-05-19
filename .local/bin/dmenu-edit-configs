@@ -25,6 +25,7 @@ declare -a options=(
 "rofi"
 "ssh"
 "sxhkd"
+"tmux"
 "vim"
 "xresources"
 "zsh"
@@ -94,6 +95,9 @@ case "$choice" in
         ;;
     sxhkd)
         choice="$HOME/.config/sxhkd/sxhkdrc"
+        ;;
+    tmux)
+        choice="$HOME/.tmux.conf"
         ;;
     vim)
         choice="$HOME/.vimrc"
