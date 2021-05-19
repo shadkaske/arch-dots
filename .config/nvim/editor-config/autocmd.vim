@@ -10,8 +10,8 @@ autocmd BufNewFile,BufRead *.blade.php set ft=blade
 autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
 
 " Emmet Install for these filetypes
-" autocmd BufNewFile,BufRead *.blade.php EmmetInstall
-" autocmd FileType blade EmmetInstall
+autocmd BufNewFile,BufRead *.blade.php EmmetInstall
+autocmd FileType blade EmmetInstall
 
 " autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
