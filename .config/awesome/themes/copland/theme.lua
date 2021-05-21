@@ -14,37 +14,37 @@ local dpi   = require("beautiful.xresources").apply_dpi
 local awesome, client, os = awesome, client, os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
-local color00                                   = "#2E3440"
-local color01                                   = "#88C0D0"
-local color02                                   = "#BF616A"
-local color03                                   = "#5E81AC"
-local color04                                   = "#EBCB8B"
-local color05                                   = "#A3BE8C"
-local color06                                   = "#D08770"
-local color07                                   = "#E5E9F0"
-local color08                                   = "#4C566A"
-local color09                                   = color01
-local color10                                   = color02
-local color11                                   = color03
-local color12                                   = color04
-local color13                                   = color05
-local color14                                   = color06
-local color15                                   = "#8FBCBB"
-local color16                                   = "#81A1C1"
-local color17                                   = "#B48EAD"
-local color18                                   = "#3B4252"
-local color19                                   = "#434C5E"
-local color20                                   = "#D8DEE9"
-local color21                                   = "#ECEFF4"
-local color_foreground                          = color07
-local color_background                          = color00
+-- local color00                                   = "#2E3440"
+-- local color01                                   = "#88C0D0"
+-- local color02                                   = "#BF616A"
+-- local color03                                   = "#5E81AC"
+-- local color04                                   = "#EBCB8B"
+-- local color05                                   = "#A3BE8C"
+-- local color06                                   = "#D08770"
+-- local color07                                   = "#D8DEE9"
+-- local color08                                   = "#4C566A"
+-- local color09                                   = color01
+-- local color10                                   = color02
+-- local color11                                   = color03
+-- local color12                                   = color04
+-- local color13                                   = color05
+-- local color14                                   = color06
+-- local color15                                   = "#8FBCBB"
+-- local color16                                   = "#81A1C1"
+-- local color17                                   = "#B48EAD"
+-- local color18                                   = "#3B4252"
+-- local color19                                   = "#434C5E"
+-- local color20                                   = "#D8DEE9"
+-- local color21                                   = "#ECEFF4"
+-- local color_foreground                          = color07
+-- local color_background                          = color00
 
-local background                                = color_background
-local foreground                                = color_foreground
-local foreground_inactive                       = color08
-local highlight                                 = color05
-local urgent                                    = color01
-local background_alt                            = color08
+local background                                = "#2E3440"
+local foreground                                = "#D8DEE9"
+local foreground_inactive                       = "#434C5E"
+local highlight                                 = "#88C0D0"
+local urgent                                    = "#BF616A"
+local background_alt                            = "#4C566A"
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/copland"
@@ -135,7 +135,7 @@ local green  = color02
 
 -- Textclock
 --os.setlocale(os.getenv("LANG")) -- to localize the clock
-local mytextclock = wibox.widget.textclock(markup(foreground, " %a %b %d %R "))
+local mytextclock = wibox.widget.textclock(markup(foreground, "   %m/%e/%g   %H:%M "))
 mytextclock.font = theme.font
 
 -- Calendar
@@ -367,6 +367,8 @@ function theme.at_screen_connect(s)
             --fsicon,
             --fswidget,
             -- bar_spr,
+            small_spr,
+            eth_icon,
             small_spr,
             volicon,
             volumewidget,
