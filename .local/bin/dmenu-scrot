@@ -73,7 +73,7 @@ dest=$(printf '%s\n' "${destination[@]}" | dmenu -i -l 20 -p 'Destination:' "$@"
 case "$dest" in
   'File')
     # shellcheck disable=SC2086
-    maim ${MAIM_ARGS} "${SCROTDIR}/scrot-${FILE_TYPE}-$(getStamp).png"
+    maim ${MAIM_ARGS} "${SCROTDIR}/screenshot-${FILE_TYPE}-$(getStamp).png"
   ;;
   'Clipboard')
     # shellcheck disable=SC2086
@@ -81,7 +81,7 @@ case "$dest" in
   ;;
   'Both')
     # shellcheck disable=SC2086
-    maim ${MAIM_ARGS} | tee "${SCROTDIR}/scrot-${FILE_TYPE}-$(getStamp).png" | xclip -selection clipboard -t image/png
+    maim ${MAIM_ARGS} | tee "${SCROTDIR}/screenshot-${FILE_TYPE}-$(getStamp).png" | xclip -selection clipboard -t image/png
   ;;
   *)
     exit 1

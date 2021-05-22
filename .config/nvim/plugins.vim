@@ -30,7 +30,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'machakann/vim-highlightedyank'
-    Plug 'chrisbra/Colorizer'
+    " Plug 'chrisbra/Colorizer'
+    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
     Plug 'voldikss/vim-floaterm'
     Plug 'vim-scripts/ReplaceWithRegister'
     Plug 'liuchengxu/vim-which-key'

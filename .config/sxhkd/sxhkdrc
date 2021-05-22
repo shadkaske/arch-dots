@@ -25,7 +25,7 @@ super + shift + p
 
 # Lockscreen
 super + @Escape
-    betterlockscreen -l dimblur
+    mpc pause && betterlockscreen -l dimblur
 
 # App Launcers
 super + {F2,F3,F4,F6,F7,F8}
