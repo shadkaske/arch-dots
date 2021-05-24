@@ -261,11 +261,11 @@ function theme.at_screen_connect(s)
     s.quake = lain.util.quake({
             app = "kitty",argname = "--title %s",extra = "--override window_padding_width=5 --class=QuakeDD tmux new-session -A -s DropDown",
             visible = false,
-            height = 0.25,
-            width = 1.0,
-            vert = "top",
+            height = 0.35,
+            width = 0.45,
+            vert = "center",
             horiz = "center",
-            border = 0,
+            border = 2,
             overlap = true,
             followtag = true,
         })
