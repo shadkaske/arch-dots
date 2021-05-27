@@ -19,15 +19,6 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Base16 Shell
-# BASE16_SHELL="$HOME/.config/base16-shell/"
-# [ -n "$PS1" ] && \
-#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-#         eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-# Set default color scheme if base16-shell link is missing
-[ ! -f $HOME/.base16_theme ] && base16_helios
-
 HYPHEN_INSENSITIVE="true"
 
 COMPLETION_WAITING_DOTS="true"
@@ -95,6 +86,9 @@ alias tn='tmux new-session -A -s'
 alias lzgd='lazygit -w $HOME -g $HOME/.dots'
 alias hup='homestead up'
 alias hdn='homestead halt'
+alias hst='homestead status'
+alias hssh='homestead ssh'
+alias hedt='cd ~/Homestead && nvim Homestead.yaml'
 
 # Term Setting
 export TERM="xterm-256color"
