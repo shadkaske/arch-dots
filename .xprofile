@@ -4,7 +4,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 export QT_STYLE_OVERRIDE=kvantum
 
-export TERMINAL=alacritty
+export TERMINAL=kitty
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
@@ -12,7 +12,7 @@ setxkbmap -option ctrl:nocaps &
 
 # xset s 900 1800 &
 
-xautolock -time 10 -locker "betterlockscreen -l dimblur" &
+# xautolock -time 10 -locker "betterlockscreen -l dimblur" &
 
 # greenclip daemon &
 
@@ -32,8 +32,8 @@ xautolock -time 10 -locker "betterlockscreen -l dimblur" &
 
 # picom &
 
-source ~/.fehbg
+# source ~/.fehbg
 
-xrdb -merge ~/.Xresources &
+# xrdb -merge ~/.Xresources &
 
 # vi: ft=sh

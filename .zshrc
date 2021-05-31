@@ -29,14 +29,12 @@ plugins=(
     git
     git-flow
     archlinux
+    ubuntu
     tmux
     tmuxinator
     sudo
     systemd
     composer
-    laravel
-    laravel5
-    vagrant
     common-aliases
     vi-mode
 )
