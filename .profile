@@ -30,5 +30,6 @@ export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH="$(yarn global bin):$PATH"
 
 export TERMINAL=st
+export TERMINAL=kitty
 
 export QT_STYLE_OVERRIDE=kvantum
