@@ -23,3 +23,5 @@
     ; cmd = nvim -d $LOCAL $MERGED $REMOTE -c $MERGED
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main

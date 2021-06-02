@@ -4,7 +4,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 export QT_STYLE_OVERRIDE=kvantum
 
-export TERMINAL=alacritty
+export TERMINAL=kitty
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
@@ -32,8 +32,8 @@ greenclip daemon &
 
 # picom &
 
-#source ~/.fehbg
+# source ~/.fehbg
 
-#xrdb -merge ~/.Xresources &
+# xrdb -merge ~/.Xresources &
 
 # vi: ft=sh

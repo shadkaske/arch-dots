@@ -53,11 +53,12 @@ end
 -- This function will run once every time Awesome is started
 local function run_once(cmd_arr)
     for _, cmd in ipairs(cmd_arr) do
-        awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
+        awful.spawn.with_shell(string.format("pgrep -u $USER '%s' > /dev/null || (%s)", cmd, cmd))
     end
 end
 
 run_once({
+    "~/.screenlayout/default.sh",
     "picom --config ~/.config/picom/picom.conf",
     "nm-applet",
     "autokey-gtk",
@@ -67,7 +68,11 @@ run_once({
     "lxpolkit",
     "udevadm monitor",
     "nextcloud --background",
-    "udiskie"
+    "udiskie",
+    "xfce4-power-manager --sm-client-disable",
+    "xfce4-screensaver",
+    "feh --bg-fill --randomize ~/.local/share/backgrounds/*",
+    "mpd",
 }) -- entries must be separated by commas
 
 -- }}}
@@ -97,9 +102,10 @@ local cycle_prev   = true -- cycle trough all previous client or just the first 
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
 local browser      = os.getenv("BROWSER") or "firefox"
-local scrlocker    = "mpc pause && betterlockscreen -l dimblur"
+local scrlocker    = "mpc pause; xfce4-screensaver-command -l"
 local clpmngr      = "dmenu-greenclip"
 local filemanager  = terminal .. " --class=RangerFM --title=Ranger -e ranger"
+local musicmanager = terminal .. " --class musicmanager -e ncmpcpp"
 
 awful.util.terminal = terminal
 -- awful.util.tagnames = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " }
@@ -367,6 +373,8 @@ globalkeys = my_table.join(
         {description = "MPC Next", group = "Media"}),
 
     -- User programs
+    awful.key({modkey, "Shift"}, "m", function() awful.spawn(musicmanager) end,
+                {description = "run music manager", group = "launcher"}),
     awful.key({ modkey }, "q", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
     awful.key({ modkey }, "a", function () awful.spawn(gui_editor) end,
@@ -623,6 +631,12 @@ awful.rules.rules = {
     { rule = { class = "valheim.x86_64" },
           properties = { fullscreen = true } },
 
+    -- Music manager floating and centered
+    { rule = { class = "musicmanager" }, properties = {
+        floating = true,
+        placement = awful.placement.centered
+    }},
+
     -- Floating Clients
     { rule_any = {
         instance = {
@@ -652,7 +666,10 @@ awful.rules.rules = {
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true }},
+      }, properties = {
+          floating = true,
+          placement = awful.placement.centered
+      }},
 }
 -- }}}
 
