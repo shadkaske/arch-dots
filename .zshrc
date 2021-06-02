@@ -8,12 +8,9 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -n $SSH_CONNECTION ]]; then
-    ZSH_THEME="robbyrussell"
+    ZSH_THEME="agnoster"
 else
-    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-    fi
-    ZSH_THEME="powerlevel10k/powerlevel10k"
+    ZSH_THEME="af-magic"
 fi
 
 # Path to your oh-my-zsh installation.
@@ -28,12 +25,11 @@ plugins=(
     zsh-autosuggestions
     git
     git-flow
-    archlinux
     ubuntu
     tmux
-    tmuxinator
     sudo
     systemd
+    artisan
     composer
     common-aliases
     vi-mode
