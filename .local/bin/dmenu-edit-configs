@@ -15,6 +15,7 @@ declare -a options=(
 "dunst"
 "dwm"
 "kitty"
+"neofetch"
 "neovim"
 "picom"
 "polybar"
@@ -65,6 +66,9 @@ case "$choice" in
         ;;
     kitty)
         choice="$HOME/.config/kitty/kitty.conf"
+        ;;
+    neofetch)
+        choice="$HOME/.config/neofetch/config.conf"
         ;;
     neovim)
         choice="$HOME/.config/nvim/init.vim"
