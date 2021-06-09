@@ -48,6 +48,10 @@ do
 end
 -- }}}
 
+-- {{{ Notification Settings
+    naughty.config.defaults['icon_size'] = 100
+-- }}}
+
 -- {{{ Autostart windowless processes
 
 -- This function will run once every time Awesome is started
@@ -58,7 +62,6 @@ local function run_once(cmd_arr)
 end
 
 run_once({
-    "~/.screenlayout/default.sh",
     "picom --config ~/.config/picom/picom.conf",
     "nm-applet",
     "autokey-gtk",
@@ -72,7 +75,6 @@ run_once({
     "xfce4-power-manager --sm-client-disable",
     "xfce4-screensaver",
     "feh --bg-fill --randomize ~/.local/share/backgrounds/*",
-    "mpd",
 }) -- entries must be separated by commas
 
 -- }}}
@@ -106,6 +108,7 @@ local scrlocker    = "mpc pause; xfce4-screensaver-command -l"
 local clpmngr      = "dmenu-greenclip"
 local filemanager  = terminal .. " --class=RangerFM --title=Ranger -e ranger"
 local musicmanager = terminal .. " --class musicmanager -e ncmpcpp"
+local quickedit    = terminal .. " --class quickedit -e nvim"
 
 awful.util.terminal = terminal
 -- awful.util.tagnames = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " }
@@ -235,18 +238,6 @@ globalkeys = my_table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey }, "h",
-        function()
-            awful.client.focus.global_bydirection("left")
-            if client.focus then client.focus:raise() end
-        end,
-        {description = "focus left", group = "client"}),
-    awful.key({ modkey }, "l",
-        function()
-            awful.client.focus.global_bydirection("right")
-            if client.focus then client.focus:raise() end
-        end,
-        {description = "focus right", group = "client"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -297,10 +288,14 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
+    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
+              {description = "increase the number of master clients", group = "layout"}),
+    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
+              {description = "decrease the number of master clients", group = "layout"}),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
@@ -346,7 +341,7 @@ globalkeys = my_table.join(
         {description = "volume down", group = "hotkeys"}),
     awful.key({}, "XF86AudioMute",
         function ()
-            os.execute("pamixer --mute")
+            os.execute("pamixer --toggle-mute")
             beautiful.volume.update()
         end,
         {description = "toggle mute", group = "hotkeys"}),
@@ -375,6 +370,8 @@ globalkeys = my_table.join(
     -- User programs
     awful.key({modkey, "Shift"}, "m", function() awful.spawn(musicmanager) end,
                 {description = "run music manager", group = "launcher"}),
+    awful.key({modkey, "Shift"}, "e", function() awful.spawn(quickedit) end,
+                {description = "pop up editor", group = "launcher"}),
     awful.key({ modkey }, "q", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
     awful.key({ modkey }, "a", function () awful.spawn(gui_editor) end,
@@ -621,11 +618,11 @@ awful.rules.rules = {
     } },
 
     -- iForms Wine Window likes to open as Maximized
-    { rule = { class = "iforms designer64.exe" },
-          properties = {
-              maximized = false,
-              floating = false,
-          } },
+    -- { rule = { class = "iforms designer64.exe" },
+    --       properties = {
+    --           maximized = false,
+    --           floating = false,
+    --       } },
 
     -- Games full screen
     { rule = { class = "valheim.x86_64" },
@@ -633,6 +630,12 @@ awful.rules.rules = {
 
     -- Music manager floating and centered
     { rule = { class = "musicmanager" }, properties = {
+        floating = true,
+        placement = awful.placement.centered
+    }},
+
+    -- Quick Editor floating and centered
+    { rule = { class = "quickedit" }, properties = {
         floating = true,
         placement = awful.placement.centered
     }},
