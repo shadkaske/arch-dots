@@ -25,7 +25,8 @@ plugins=(
     zsh-autosuggestions
     git
     git-flow
-    ubuntu
+    archlinux
+    vagrant
     tmux
     sudo
     systemd
@@ -33,6 +34,8 @@ plugins=(
     composer
     common-aliases
     vi-mode
+    # command-not-found
+    # zsh-interactive-cd
 )
 
 # User configuration
@@ -148,3 +151,5 @@ _systemctl_unit_state() {
   typeset -gA _sys_unit_state
   _sys_unit_state=( $(__systemctl list-unit-files "$PREFIX*" | awk '{print $1, $2}') ) }
 alias sail='bash vendor/bin/sail'
+
+neofetch
