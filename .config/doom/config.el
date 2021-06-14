@@ -14,7 +14,7 @@
 
 ;; Disable Clipboard Selection and Manager
 ;; (setq select-enable-clipboard nil
-(setq x-select-enable-clipboard-manager nil)
+(setq x-select-enable-clipboard-manager t)
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -48,7 +48,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -58,6 +58,29 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type `visual)
 
+;; LSP Config settings
+(setq
+ lsp-auto-guess-root t
+ lsp-keymap-prefix "M-l"
+ lsp-file-watch-threshold 2000
+ lsp-intelephense-licence-key "00JMKSX69F0RDXE"
+ lsp-headerline-breadcrumb-enable nil)
+
+(with-eval-after-load 'lsp-mode
+  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.git\\'"))
+;; (map!
+;;  :leader
+;;  :desc "+LSP"
+;;  "l" #'+default/lsp-command-map)
+
+;; Treemacs Config
+;; (treemacs-resize-icons 12)
+
+(map!
+ :leader
+ :desc "treemacs"
+ "e" #'+treemacs/toggle)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

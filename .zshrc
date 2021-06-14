@@ -30,7 +30,7 @@ plugins=(
     tmux
     sudo
     systemd
-    artisan
+    laravel
     composer
     common-aliases
     vi-mode
