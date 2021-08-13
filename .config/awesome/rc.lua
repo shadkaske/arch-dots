@@ -650,6 +650,7 @@ awful.rules.rules = {
         },
         class = {
           "Arandr",
+          "VirtualBox Manager",
           "Blueman-manager",
           "Gpick",
           "MessageWin",  -- kalarm.
