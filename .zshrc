@@ -34,6 +34,7 @@ plugins=(
     composer
     common-aliases
     vi-mode
+    homestead
     # command-not-found
     # zsh-interactive-cd
 )

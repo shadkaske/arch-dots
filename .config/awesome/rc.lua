@@ -403,8 +403,10 @@ globalkeys = my_table.join(
             {description = "Toggle Systray", group = "custom"}),
 
     -- Dmenu virsh list
-    awful.key({ modkey, altkey }, "i", function() awful.spawn("dmenu-virtmanager") end,
-              {description = "virt-manager vms", group = "launcher"}),
+    -- awful.key({ modkey, altkey }, "i", function() awful.spawn("dmenu-virtmanager") end,
+    --           {description = "virt-manager vms", group = "launcher"}),
+    awful.key({ modkey, altkey }, "i", function() awful.spawn("rofi-vbox") end,
+              {description = "virtualbox vms", group = "launcher"}),
 
     -- Dmenu Network Manager
     awful.key({ modkey, altkey }, "n", function() awful.spawn("dmenu-networkmanager") end,
